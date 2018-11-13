@@ -21,6 +21,23 @@ class FlatsController < ApplicationController
       end
   end
 
+  def edit
+  end
+
+  def update
+    @flat.update(flat_params)
+
+    # redirect to the restaurant show page
+    redirect_to flat_path(@flat)
+  end
+
+  def destroy
+    @flat.destroy
+
+    # redirect to the index
+    redirect_to flats_path
+  end
+
 private
   def set_flat
     @flat = Flat.find(params[:id])
